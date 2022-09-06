@@ -20,19 +20,18 @@ const MIN_VAL = 1;
     }
     let nbMystere = tireNombre(MIN_VAL, MAX_VAL);
     let mystereTrouver = false;
+    let nbEssais = 0;
     do{
     let reponse = prompt('Le nombre à deviner est de 1 à 100');
-    let nbEssais;
     nbEssais += 1;
-    if (reponse === nbMystere){
-    alert('Vous avez trouvé après ${nbEssais} d´essais');
-    mystereTrouver = true;
-    } else{
-        if (reponse>nbMystere){
+        if (reponse > nbMystere){
             alert('C´est moins !');
-        }else{
+        }else if (reponse < nbMystere){
             alert('C´est plus !');
         }
-    }
+        else {
+            alert(`Vous avez trouvé après ${nbEssais} d´essais`);
+            mystereTrouver = true;
+        }
     }while(mystereTrouver === false);
 }()); // main IIFE
